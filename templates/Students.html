@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student academic performance</title>
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <script src="{{url_for('static', filename='js/myScript.js')}}" type="text/javascript"></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<script src="{{url_for('static', filename='js/myScript.js')}}" type="text/javascript"></script>
+
+<div id="background-header" style="position:absolute;"></div>
+
+<div id="container">
+
+    <div id="header" style="position:absolute;">
+
+        <img alt="Logo" id="logo" src="{{url_for('static', filename='img/sts.jpg')}}"/>
+
+        <p class="slogan">Welcome to Student Academic Performance</p>
+
+        <ul id="ul-header">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="Students.html">Students</a></li>
+            <li><a href="Prediction.html">Prediction</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+
+    </div>
+
+    <div id="empty"></div>
+
+
+    <div id="Datasets">
+
+        <div class="content">
+
+
+            <div id="outside">
+                <form action="/students" id="survey-form" method="post">
+                    <h1 id="title">Student academic performance</h1>
+
+
+                    <fieldset>
+                        <div>
+                            <label for="Gender">1.Gender</label>
+                            <p>
+                                {% for item in gender %}
+
+                                <input checked name="gender" type="radio" value="{{ item }}">{{ item }}<br>
+                                {% endfor %}
+
+                            </p>
+                        </div>
+                        <div>
+                            <label for="nationality">2.Nationality:</label>
+                            <p>
+
+                                <select name="NationalITy" id="dropdown">
+
+                                    {% for item in NationalITy %}
+                                    <option value="{{item}}">{{item}}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="Place of birth">3.Place of birth:</label>
+                            <p>
+                                <select name="PlaceofBirth" id="dropdown">
+                                    {% for item in PlaceofBirth %}
+                                    <option value="{{item}}">{{item}}</option>
+                                    {% endfor %}
+
+
+                                </select>
+                            </p>
+                        </div>
+                        <div>
+                            <label for="Educational stage">4.Educational stage</label>
+                            <p>
+                                {% for item in StageID %}
+                                <input checked name="StageID" type="radio" value="{{ item }}">{{ item }}<br>
+
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div>
+                            <label for="Grade level">5. Select your Grade level:</label>
+                            <p>
+                                <select name="GradeID" id="dropdown">
+
+                                    {% for item in GradeID %}
+                                    <option value="{{item}}">{{item}}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </p>
+                        </div>
+                        <div>
+                            <label for="Semester">6. Enter your school semester: </label>
+                            <p>
+                                {% for item in Semester %}
+                                <input checked name="Semester" type="radio" value="{{item}}">"{{item}}" <br>
+                                {% endfor %}
+
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="course">7. Enter your course topic:<label>
+                                <p>
+                                    <select name="Topic" id="dropdown">
+
+                                        {% for item in Topic %}
+                                        <option value="{{item}}">{{item}}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </p>
+                        </div>
+
+
+                        <div>
+
+                            <div>
+                                <label for="Section ID">8. Which classroom were you in? </label>
+                                <p>
+                                    {% for item in SectionID %}
+                                    <input checked name="SectionID" type="radio" value="{{item}}">"{{item}}" <br>
+                                    {% endfor %}
+                                </p>
+                            </div>
+
+
+                            <div>
+                                <label for="participation">9. Did your parent participate in parent survey?</label>
+                                <p>
+                                    {% for item in ParentAnsweringSurvey %}
+                                    <input checked name="ParentAnsweringSurvey" type="radio" value="{{item}}">"{{item}}"
+                                    <br>
+                                    {% endfor %}
+                                </p>
+                            </div>
+
+                            <div>
+                                <label for="responsible">10. Which of your parents is responsible for you??</label>
+                                <p>
+                                    {% for item in Relation %}
+                                    <input checked name="Relation" type="radio" value="{{item}}">"{{item}}" <br>
+                                    {% endfor %}
+
+                                </p>
+                            </div>
+
+
+                            <div>
+                                <label for="satisfaction">11. Are your parents satisfied with the school?</label>
+                                <p>
+                                    {% for item in ParentschoolSatisfaction %}
+                                    <input checked name="ParentschoolSatisfaction" type="radio" value="{{item}}">"{{item}}"
+                                    <br>
+                                    {% endfor %}
+
+                                </p>
+                            </div>
+
+                            <div>
+                                <label for="absent">12. How many days have you been absent?</label>
+                                <p>
+                                    {% for item in StudentAbsenceDays %}
+                                    <input checked name="StudentAbsenceDays" type="radio" value="{{item}}">"{{item}}"
+                                    <br>
+                                    {% endfor %}
+
+                                </p>
+                            </div>
+                            <div>
+                                <label for="VisITedResources ">13. how many times the student visits a course content?
+                                    (0-100)</label>
+                            </div>
+                            <div>
+                                <p>
+                                    <input name="VisITedResources" max="100" min="1" type="number">
+                                </p>
+
+                            </div>
+
+                            <div>
+                                <label for=AnnouncementsView>14. How many times did you check the
+                                    announcements?(0-100)</label>
+                            </div>
+                            <div>
+                                <p>
+                                    <input name="AnnouncementsView" max="100" min="1" type="number">
+                                </p>
+                            </div>
+
+                            <div>
+                                <label for="raisedhands ">15. How many times do you usually raise your hand in each
+                                    lecture? (0-100)</label>
+                            </div>
+                            <div>
+                                <p>
+                                    <input name="raisedhands" max="100" min="1" type="number">
+                                </p>
+                            </div>
+
+                            <div>
+                                <label for=Discussion>16. How many times did you participate in a discussion groups?
+                                    (0-100)</label>
+                            </div>
+                            <div>
+                                <p>
+                                    <input name="Discussion" max="100" min="1" type="number">
+                                </p>
+                            </div>
+                            <script>
+<div>
+$(function(){
+    var $select = $(".1-100");
+    for (i=1;i<=100;i++){
+        $select.append($('<option></option>').val(i).html(i))
+    }
+});​
+</div>
+
+                            </script>
+
+                    </fieldset>
+                    <!-- ------------------Checkboxes-------------------------------- -->
+                    <div id="submitbutton">
+                        <button id="submit" type="submit">Send your application</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
