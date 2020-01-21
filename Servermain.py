@@ -3,11 +3,11 @@ from flask import Flask, render_template, flash, request, url_for
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from werkzeug.utils import redirect
-from Model-classification import predictFunction
+# from Model-classification import predict
 from Convertor import *
 import plot as plt
-from dataset.Convertor import convertor
-
+# import dataset.Convertor
+import pickle
 # App config.
 DEBUG = True
 app = Flask(__name__)
@@ -44,6 +44,8 @@ def dataForm():
     ParentschoolSatisfaction=['Yes', 'No']
     StudentAbsenceDays = ['Under-7', 'Above-7']
 
+
+
     if request.method == 'POST':
 
         gender = request.form['gender']
@@ -62,13 +64,30 @@ def dataForm():
         raisedhands=request.form['raisedhands']
         Discussion=request.form['Discussion']
 
+        error='select all field.'
+    # else :
+    #
+    #     studentInfo[0]=convertor(request.form['gender'])
+    #     studentInfo[1]=convertor(request.form['Nationality'])
+    #     studentInfo[2]=convertor(request.form['PlaceofBirth'])
+    #     studentInfo[3]=convertor(request.form['StageID'])
+    #     studentInfo[4]=convertor(request.form['SectionID'])
+    #     studentInfo[5]=convertor(request.form['Topic'])
+    #     studentInfo[6]=convertor(request.form['Semester'])
+    #     studentInfo[7]=convertor(request.form['ParentAnsweringSurvey'])
+    #     studentInfo[8]=convertor(request.form['ParentschoolSatisfaction'])
+    #     studentInfo[9]=convertor(request.form['StudentAbsenceDays'])
+    #     studentInfo[10]=convertor(request.form['VisITedResources'])
+    #     studentInfo[11]=convertor(request.form['AnnouncementsView'])
+    #     studentInfo[12]=convertor(request.form['raisedhands'])
+    #     studentInfo[13]=convertor(request.form['Discussion'])
+    #     studentInfo[14]=convertor(request.form['health'])
+    #     studentInfo[15]=convertor(request.form['absences'])
+    #
 
 
 
-
-
-
-        return redirect (url_for ('Prediction'))
+       # return redirect (url_for ('Prediction'))
 
     elif request.method == 'GET':
 
@@ -76,27 +95,15 @@ def dataForm():
                                GradeID=GradeID,SectionID=SectionID,Topic=Topic,Semester=Semester,Relation=Relation,
                                 ParentAnsweringSurvey=ParentAnsweringSurvey,ParentschoolSatisfaction=ParentschoolSatisfaction,StudentAbsenceDays=StudentAbsenceDays)
 
-@app.route('/Model-Classification')
-def predict():
-   df['TotalQ'] = df['Class']
-   df['TotalQ'].loc[df.TotalQ == 'Low-Level'] = 0.0
-   df['TotalQ'].loc[df.TotalQ == 'Middle-Level'] = 1.0
-   df['TotalQ'].loc[df.TotalQ == 'High-Level'] = 2.0
-
-   continuous_subset = df.iloc[:, 9:13]
-   continuous_subset['gender'] = np.where(df['gender'] == 'M', 1, 0)
-   continuous_subset['Parent'] = np.where(df['Relation'] == 'Father', 1, 0)
-
-   X = np.array(continuous_subset).astype('float64')
-   y = np.array(df['TotalQ'])
-
-    X_train, X_test, y_train, y_test = train_test_split(
-       X, y, test_size=0.3, random_state=0)
-
-    knn: predict = KNeighborsClassifier(n_neighbors=23)
-    knn.fit(X_train, y_train)
-
-    return render_template('prediction.html')
+# @app.route('/Prediction')
+# def prediction(student_info):
+#     fi=open("knn.pkl", 'rb')
+#     model=pickle.load(fi)
+#
+#     student_info=np.array(student_info).reshape(1, -1)
+#     res=model.predict(student_info)
+#
+#      return render_template('Prediction.html')
 
 if __name__ == "__main__":
    app.run()

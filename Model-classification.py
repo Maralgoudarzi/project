@@ -34,7 +34,7 @@ print(X_train)
 import pickle
 import numpy as np
 
-def predict (student_info):
+def predict(student_info):
     #load the sklearn model from pickle file
     fi=open("knn.pkl", 'rb')
     model=pickle.load(fi)
