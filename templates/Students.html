@@ -49,7 +49,7 @@
                             <p>
                                 {% for item in gender %}
 
-                                <input checked name="gender" type="radio"  value="{{ item['value'] }}" >{{ item['name'] }}<br>
+                                <input checked name="gender" type="radio"  value="{{ item['value'] }}" >{{ item['name']}}<br>
                                 {% endfor %}
 
                             </p>
@@ -61,7 +61,7 @@
                                 <select name="NationalITy" id="dropdown">
 
                                     {% for item in NationalITy %}
-                                    <option value="{{item}}">{{item}}</option>
+                                    <option value="{{item['value']}}">{{item['name']}}</option>
                                     {% endfor %}
 
                                 </select>
@@ -73,7 +73,7 @@
                             <p>
                                 <select name="PlaceofBirth" id="dropdown">
                                     {% for item in PlaceofBirth %}
-                                    <option value="{{item}}">{{item}}</option>
+                                    <option value="{{item['value']}}">{{item['name']}}</option>
                                     {% endfor %}
 
 
@@ -84,7 +84,7 @@
                             <label for="Educational stage">4.Educational stage</label>
                             <p>
                                 {% for item in StageID %}
-                                <input checked name="StageID" type="radio" value="{{ item }}">{{ item }}<br>
+                                <input checked name="StageID" type="radio" value="{{ item['value']}}">{{ item['name']}}<br>
 
                                 {% endfor %}
                             </p>
@@ -95,7 +95,7 @@
                                 <select name="GradeID" id="dropdown">
 
                                     {% for item in GradeID %}
-                                    <option value="{{item}}">{{item}}</option>
+                                    <option value="{{item['value']}}">{{item['name']}}</option>
                                     {% endfor %}
 
                                 </select>
@@ -105,7 +105,7 @@
                             <label for="Semester">6. Enter your school semester: </label>
                             <p>
                                 {% for item in Semester %}
-                                <input checked name="Semester" type="radio" value="{{item}}">"{{item}}" <br>
+                                <input checked name="Semester" type="radio" value="{{item['value']}}">"{{item['name']}}" <br>
                                 {% endfor %}
 
                             </p>
@@ -117,7 +117,7 @@
                                     <select name="Topic" id="dropdown">
 
                                         {% for item in Topic %}
-                                        <option value="{{item}}">{{item}}</option>
+                                        <option value="{{item['value']}}">{{item['name']}}</option>
                                         {% endfor %}
 
                                     </select>
@@ -131,7 +131,7 @@
                                 <label for="Section ID">8. Which classroom were you in? </label>
                                 <p>
                                     {% for item in SectionID %}
-                                    <input checked name="SectionID" type="radio" value="{{item}}">"{{item}}" <br>
+                                    <input checked name="SectionID" type="radio" value="{{item['value']}}">"{{item['name']}}" <br>
                                     {% endfor %}
                                 </p>
                             </div>
@@ -141,7 +141,7 @@
                                 <label for="participation">9. Did your parent participate in parent survey?</label>
                                 <p>
                                     {% for item in ParentAnsweringSurvey %}
-                                    <input checked name="ParentAnsweringSurvey" type="radio" value="{{item}}">"{{item}}"
+                                    <input checked name="ParentAnsweringSurvey" type="radio" value="{{item['value']}}">"{{item['name']}}"
                                     <br>
                                     {% endfor %}
                                 </p>
@@ -151,7 +151,7 @@
                                 <label for="responsible">10. Which of your parents is responsible for you??</label>
                                 <p>
                                     {% for item in Relation %}
-                                    <input checked name="Relation" type="radio" value="{{item}}">"{{item}}" <br>
+                                    <input checked name="Relation" type="radio" value="{{item['value']}}">"{{item['name']}}" <br>
                                     {% endfor %}
 
                                 </p>
@@ -162,7 +162,7 @@
                                 <label for="satisfaction">11. Are your parents satisfied with the school?</label>
                                 <p>
                                     {% for item in ParentschoolSatisfaction %}
-                                    <input checked name="ParentschoolSatisfaction" type="radio" value="{{item}}">"{{item}}"
+                                    <input checked name="ParentschoolSatisfaction" type="radio" value="{{item['value']}}">"{{item['name']}}"
                                     <br>
                                     {% endfor %}
 
@@ -173,7 +173,7 @@
                                 <label for="absent">12. How many days have you been absent?</label>
                                 <p>
                                     {% for item in StudentAbsenceDays %}
-                                    <input checked name="StudentAbsenceDays" type="radio" value="{{item}}">"{{item}}"
+                                    <input checked name="StudentAbsenceDays" type="radio" value="{{item['value']}}">"{{item['name']}}"
                                     <br>
                                     {% endfor %}
 
