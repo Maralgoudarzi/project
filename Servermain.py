@@ -33,10 +33,10 @@ def dataForm():
     gender = [{'name':'Female','value':0},{'name':'Male','value':1}]
 
     Nationality = [{'name':'Iran','value':1},{'name':'SaudiArabia','value':2},{'name':'USA','value':3},{'name':'Egypt','value':4},{'name':'Lybia','value':5},{'name':'lebanon','value':6},{'name':'Morocco','value':7},
-                   {'name': 'Jordan', 'value': 8},{'name': 'Palestine', 'value': 9} ,{'name': 'Syria', 'value': 10},{'name': 'Tunis', 'value': 11},{'name': 'KW', 'value': 12},{'name': 'Iraq', 'value': 13},{'name': 'Iraq', 'value': 14}]
+                   {'name': 'Jordan', 'value': 8},{'name': 'Palestine', 'value': 9} ,{'name': 'Syria', 'value': 10},{'name': 'Tunis', 'value': 11},{'name': 'KW', 'value': 12},{'name': 'venzuela', 'value': 13},{'name': 'Iraq', 'value': 14}]
 
     PlaceofBirth = [{'name':'Iran','value':1},{'name':'SaudiArabia','value':2},{'name':'USA','value':3},{'name':'Egypt','value':4},{'name':'Lybia','value':5},{'name':'lebanon','value':6},{'name':'Morocco','value':7},
-                   {'name': 'Jordan', 'value': 8},{'name': 'Palestine', 'value': 9} ,{'name': 'Syria', 'value': 10},{'name': 'Tunis', 'value': 11},{'name': 'KW', 'value': 12},{'name': 'Iraq', 'value': 13},{'name': 'Iraq', 'value': 14}]
+                   {'name': 'Jordan', 'value': 8},{'name': 'Palestine', 'value': 9} ,{'name': 'Syria', 'value': 10},{'name': 'Tunis', 'value': 11},{'name': 'KW', 'value': 12},{'name': 'Iraq','value': 13},{'name':'venzuela','value': 14}]
 
     StageID = [{'name':'lowerlevel','value':1},{'name':'MiddleSchool','value':2},{'name':'HighSchool','value':3}]
 
