@@ -36,11 +36,19 @@ import numpy as np
 
 def predict(student_info):
     #load the sklearn model from pickle file
-    fi=open("knn.pkl", 'rb')
-    model=pickle.load(fi)
+    fi = open("knn.pkl", 'rb')
+    model = pickle.load(fi)
 
     student_info = np.array(student_info).reshape(1, -1)
+
+
     res = model.predict(student_info)
     Class = res[0]
-    print("The predicted grade is: ‌".format(Class))
+
+    print("The predicted grade is:‌",Class)
     return Class
+
+
+
+test = [1,12,12,2,4,1,6,2,1,15,16,2,20,1,1,0]
+predict(test)

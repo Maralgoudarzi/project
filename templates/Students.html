@@ -49,7 +49,7 @@
                             <p>
                                 {% for item in gender %}
 
-                                <input checked name="gender" type="radio" value="{{ item }}">{{ item }}<br>
+                                <input checked name="gender" type="radio"  value="{{ item['value'] }}" >{{ item['name'] }}<br>
                                 {% endfor %}
 
                             </p>
