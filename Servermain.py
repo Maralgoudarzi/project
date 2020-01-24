@@ -17,7 +17,7 @@ app.config.from_object(__name__)
 
 
 studentInfo = ["gender","NationalITy","PlaceofBirth","StageID","GradeID","SectionID","Topic","Semester",
-               "Relation","","raisedhands","VisITedResources","AnnouncementsView","Discussion","ParentAnsweringSurvey","ParentschoolSatisfaction","StudentAbsenceDays"]
+               "Relation","raisedhands","VisITedResources","AnnouncementsView","Discussion","ParentAnsweringSurvey","ParentschoolSatisfaction","StudentAbsenceDays"]
 
 # Route for handling the login page logic
 @app.route('/')
@@ -44,7 +44,7 @@ def dataForm():
     SectionID = [{'name':'A','value':1},{'name':'B','value':2},{'name':'C','value':3}]
     Topic = [{'name':'Biology','value':1},{'name':'Geology','value':2},{'name':'Quran','value':3},{'name':'Science','value':4},{'name':'Spanish','value':5},{'name':'IT','value':6},{'name':'French','value':7},
              {'name':'English','value':8},{'name':'Arabic','value':9},{'name':'Chemistry','value':10},{'name':'Math','value':11},{'name':'History','value':12}]
-    Semester = [{'name':'S','value':1},{'name':'F','value':1}]
+    Semester = [{'name':'S','value':0},{'name':'F','value':1}]
     Relation =[{'name':'Father','value':1},{'name':'Mum','value':2}]
     ParentAnsweringSurvey = [{'name':'Yes','value':1},{'name':'No','value':0}]
     ParentschoolSatisfaction=[{'name':'Yes','value':1},{'name':'No','value':0}]
@@ -60,7 +60,8 @@ def dataForm():
         StageID = request.form['StageID']
         GradeID = request.form['GradeID']
         SectionID = request.form['SectionID']
-        Topic = request.form['Topic']
+        Semester = request.form['Semester']
+        Topic=request.form['Topic']
         Relation = request.form['Relation']
         ParentAnsweringSurvey = request.form['ParentAnsweringSurvey']
         ParentschoolSatisfaction = request.form['ParentschoolSatisfaction']
@@ -70,10 +71,13 @@ def dataForm():
         raisedhands=request.form['raisedhands']
         Discussion=request.form['Discussion']
 
+        # ToDo: check for input Errors and show to user
 
         test_data = [gender,NationalITy,PlaceofBirth,StageID,GradeID,SectionID,Topic,Semester,Relation,raisedhands,VisITedResources,AnnouncementsView,Discussion,ParentAnsweringSurvey,ParentschoolSatisfaction,StudentAbsenceDays]
 
+        print(test_data)
         user_score = predict(test_data)
+
         print("Score:",user_score)
 
 
@@ -94,7 +98,7 @@ def dataForm():
 
 def predict(student_info):
     #load the sklearn model from pickle file
-    fi = open("knn.pkl", 'rb')
+    fi = open("/Users/maral/PycharmProjects/mainLaproject/project/knn.pkl", 'rb')
     model = pickle.load(fi)
 
     student_info = np.array(student_info).reshape(1, -1)
