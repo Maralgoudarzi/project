@@ -23,7 +23,7 @@
 
         <ul id="ul-header">
             <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="Students.html">Students</a></li>
+            <li><a class="active" href="/students">Students</a></li>
             <li><a href="Prediction.html">Prediction</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
         </ul>
@@ -42,6 +42,12 @@
                 <form action="/students" id="survey-form" method="post">
                     <h1 id="title">Student academic performance</h1>
 
+                    {% if error %}
+
+                        <span style="color:red;font-size:20px;margin-top:20px;margin-bottom:20px"> Error: {{error}}</span>
+
+
+                    {% endif%}
 
                     <fieldset>
                         <div>
