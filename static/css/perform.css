@@ -6,15 +6,19 @@ html {
     height: 100%;
 }
 body {
-    background-color:#5ee2e633;
+    background-image:url(../img/pe.jpeg);
     position: relative;
     min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 #background-header {
     width: 100%;
     height: 139px;
-    background-color: #F0DFFA;
-    border-bottom: 1px solid #C7A3C2;
+    background-color: #16101a14;
+    /*border-bottom: 1px solid #C7A3C2;*/
     z-index: -1;
     position: fixed;
 }
@@ -29,11 +33,12 @@ body {
 #header {
     width: 950px;
     height: 139px;
-    background-color: #F0DFFA;
-    border-bottom: 1px solid #C7A3C2;
+    background-color: #e0dfe500;
+   /* border-bottom: 1px solid #C7A3C2;*/
     left: 50%;
     margin-left: -475px;
     position: fixed;
+    z-index:1;
 }
 #empty {
     width: 950px;
@@ -42,28 +47,34 @@ body {
 }
 #logo {
     float: left;
-    width: 323px;
+    width: 200px;
     height: 131px;
     margin-bottom: 5px;
     margin-left: 3px;
     margin-top: 3px;
 }
 p.slogan {
-    float: right;
+   /* float: none;*/
+    text-align: center;
     font-size: 22px;
     font-style: italic;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #a90007;
+    color: black;
 }
 #ul-header {
     overflow: hidden;
     list-style-type: none;
     clear: right;
-    float: right;
+   float: right;
+   position: absolute;
+    top: 90px;
+    right: 300px;
     padding: 0px 0px 0px 0px;
-    background-color: #fefafc5e;
-    border-color: #792D28;
-    border-style: ridge;
+  /*  background-color: #c4ff351f;*/
+   /* border-color: #792D28;
+    border-style: ridge;*/
+     list-style-type: none;
+  margin: 0;
     opacity: 1;
 }
 #ul-header li {
@@ -82,13 +93,13 @@ p.slogan {
     color: #000000;
 }
 #ul-header li:nth-child(1) {
-    border-right: 1px solid #8A6578;
+   /* border-right: 1px solid #8A6578;*/
 }
 #ul-header li:nth-child(2) {
-    border-right: 1px solid #8A6578;
+    /*border-right: 1px solid #8A6578;*/
 }
 #ul-header li:nth-child(3) {
-    border-right: 1px solid #8A6578;
+   /* border-right: 1px solid #8A6578;*/
 }
 #ul-header li a:hover {
     background-color: #8C382A;
@@ -102,8 +113,10 @@ p.slogan {
     padding-right: 12px;
     padding-left: 12px;
     color: #CBAABC;
-    background-color: #e9e14763;
+    background-color: #ffffff78;
 }
+
+/*finish*/
 #background-restaurant {
     width: 500px;
     height: 500px;
@@ -115,6 +128,26 @@ p.slogan {
 #restaurant {
     width: 950px;
     height: 631px;
+}
+
+#btn{
+ display: block;
+    width: 200px;
+
+    /* Padding and margins */
+    padding: 1em;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Text styles */
+    color: #b7213d;
+    text-decoration: none;
+    font-size: 1.5em;
+
+    /* Border styles */
+    border: 3px solid #2d2994;
+    border-radius: 20px;
 }
 #about {
     width: 950px;
@@ -226,7 +259,7 @@ td {
     margin-top: 54px;
     padding: 13px;
     padding-bottom: 21px;
-    background-image: url("../img/chef-pizza.png");
+    background-image: url("../img/uni.jpg");
     background-color: #D7BA81;
     border: 1px solid #8d215c;
 }
@@ -248,7 +281,7 @@ td {
     position: relative;
 }
 form {
-    width: 283px;
+    width: 900px;
     height: auto;
 }
 form input {
@@ -355,26 +388,36 @@ form input[type=submit] {
     clear: both;
     width: 950px;
     height: auto;
-    color: white;
+    color: black;
     left: 50%;
     margin-left: -475px;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     font-family: Georgia, serif;
     position: relative;
-    border: 1px solid #341F29;
+   /* border: 1px solid #341F29;*/
 }
 #background-footer {
-    width: 100%;
+    /*width: 100%;
     height: auto;
     margin-top: 34px;
     position: absolute;
     bottom: 0px;
     padding-top: 54px;
     padding-bottom: 86px;
-    background-color: #341F29;
+    background-color: #d7dec9;
     color: #F0DFFA;
+
+     */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #d7dec9a8;
+    color: white;
+    text-align: center;
 }
+
 #background-footer-hidden {
     visibility: hidden;
     width: 100%;

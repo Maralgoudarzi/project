@@ -2,9 +2,22 @@
 <html>
 
 <head>
-    <title>Prediction Student's performance</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/performance.css')}}">
-    <meta charset="UTF-8">
+
+      <meta charset="UTF-8">
+    <title>Dataset analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/perform.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/bootstrap.min.css') }}"/>
+    <link href="./static/css/c3.min.css" rel="stylesheet" type="text/css">
+    <!-- load d3.js and c3.js files -->
+    <script src="./static/javascript/d3.min.js" charset="utf-8"></script>
+    <script src="./static/javascript/c3.min.js"></script>
+	<style>
+	#table1 {
+	border-collapse: separate;
+	border-spacing: 30px 10px;
+}
+</style>
 </head>
 
 <body>
@@ -20,10 +33,9 @@
             <p class="slogan">Welcome to Student Academic Performance</p>
 
            <ul id="ul-header">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Students.html">Students</a></li>
+             <li><a href="/">Home</a></li>
+                <li><a href="students">Students</a></li>
                 <li><a class="active" href="Prediction.html">Prediction</a></li>
-                <li><a href="AboutUs.html">About Us</a></li>
             </ul>
 
 
@@ -32,117 +44,92 @@
         <div id="empty"></div>
 
         <table>
-            <tr id="first-row">
-                <th class="pizza">Pizza</th>
-                <th>Medium</th>
-                <th>Large</th>
-            </tr>
-            <tr>
-                <td class="pizza">Primo</td>
-                <td>17.49$</td>
-                <td>20.99$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Pepperoni, Italian sausage, mushroom, onion & green pepper</td>
-            </tr>
-            <tr>
-                <td class="pizza">Milano</td>
-                <td>16.50$</td>
-                <td>18.50$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Artichoke hearts, sun-dried tomatoes, roasted galic, black olives, hot sausage, roasted eggplant</td>
-            </tr>
-            <tr>
-                <td class="pizza">Rome</td>
-                <td>16.50$</td>
-                <td>18.50$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Pepperoni, hot sausage, onions, green peppers, mushrooms</td>
-            </tr>
-            <tr>
-                <td class="pizza">Margherita</td>
-                <td>14.95$</td>
-                <td>16.50$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Tomato sauce, fresh mozzarella,basil</td>
-            </tr>
-            <tr>
-                <td class="pizza">Napolitana</td>
-                <td>19.95$</td>
-                <td>23.75$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Pepperoni, meatball, fresh mushrooms, sausage,fresh peppers, onions, anchovies</td>
-            </tr>
-            <tr>
-                <td class="pizza">Primavera (white)</td>
-                <td>18.95$</td>
-                <td>20.95$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Fresh sliced tomatoes, marinated artichokes, mushrooms, black olives and a touch of garlic - served with or without mozzarella</td>
-            </tr>
-            <tr>
-                <td class="pizza">Fra Diavolo</td>
-                <td>18.95$</td>
-                <td>20.95$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Hot cherry, peppers, sausage and onions with tomato sauce and mozzarella</td>
-            </tr>
-            <tr>
-                <td class="pizza">Domenico</td>
-                <td>18.95$</td>
-                <td>20.95$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Fresh mushrooms, eggplant, ham, marinara sauce, covered with mozzarella</td>
-            </tr>
-            <tr>
-                <td class="pizza">Tricolore (white)</td>
-                <td>18.95$</td>
-                <td>20.95$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Mozzarella, sun-dried tomatoes, grillen chicken and spinach, drizzled with olive oil and extra "pinch" of grated parmigiano</td>
-            </tr>
-            <tr>
-                <td class="pizza">Veggie</td>
-                <td>19.95$</td>
-                <td>23.75$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Mushrooms, peppers, onions, broccoli, olives, eggplant, fresh tomatoes</td>
-            </tr>
-            <tr>
-                <td class="pizza">Hawaiian pizza</td>
-                <td>18.95$</td>
-                <td>20.95$</td>
-            </tr>
-            <tr>
-                <td class="first-col">pineapple, ham, bacon and mozzarella with red sauce</td>
-            </tr>
-            <tr>
-                <td class="pizza">Meat lovers</td>
-                <td>19.95$</td>
-                <td>23.75$</td>
-            </tr>
-            <tr>
-                <td class="first-col">Sausage, meatball, bacon, pepperoni & ham</td>
-            </tr>
         </table>
 
+
+        #new maral
+<p>Your Score is: {{score}}</p>
+
+
+
+
     </div>
+<div class="cont">
+
+</div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h2 >You can find some charts here</h2>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" style="margin-bottom:40px">
+            <div class="col-md-auto">
+                <h5>take a look for better perspective</h5>
+            </div>
+        </div>
+        <!--+++++++++++plot++++++++++-->
+
+
+            <div class="row justify-content-md-center">
+                <div class="column" style="margin-right:60px">
+                    <div class="row justify-content-md-center">
+                        <h6>Gender distribution</h6>
+                    </div>
+                    <div class="row">
+                        <div style="width: 350px; height: 350px">
+                            <div id="chart1"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row justify-content-md-center">
+                <div class="column" style="margin-right:60px">
+                    <div class="row justify-content-md-center">
+                        <h6>Nation distribution</h6>
+                    </div>
+                    <div class="row">
+                        <div style="width: 350px; height: 350px">
+                            <div id="chart2"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row justify-content-md-center">
+                <div class="column" style="margin-right:60px">
+                    <div class="row justify-content-md-center">
+                        <h6>Grade distribution regarding SectionID</h6>
+                    </div>
+                    <div class="row">
+                        <div style="width: 350px; height: 350px">
+                            <div id="chart2"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
 
     <div id="background-footer-hidden">
 
         <div class="footer">
-            <p>Please contact Sinisa Bubonja at sinisa.bubonja@gmail.com with problems or questions about this web page.</p>
-            <p>DISCLAIMER: <em>Pizza Bubonja's</em> is not real restaurant. This website is part of my portfolio and is completely fictional.</p>
-            <p>&copy; 2016 Pizza Bubonja's. All Rights Reserved.</p>
+            <p>Please contact Orchid group at Orchid.group@gmail.com with problems or questions about this web page.</p>
+            <p>DISCLAIMER: <em>Student academic performance</em> </p>
+            <p>&copy; 2020 Student performance. All Rights Reserved.</p>
         </div>
 
     </div>
@@ -150,12 +137,21 @@
     <div id="background-footer">
 
         <div class="footer">
-            <p>Please contact Sinisa Bubonja at sinisa.bubonja@gmail.com with problems or questions about this web page.</p>
-            <p>DISCLAIMER: <em>Pizza Bubonja's</em> is not real restaurant. This website is part of my portfolio and is completely fictional.</p>
-            <p>&copy; 2016 Pizza Bubonja's. All Rights Reserved.</p>
+            <p>Please contact Orchid group at Orchid.group@gmail.com with problems or questions about this web page.</p>
+            <p>DISCLAIMER: <em>Student academic performance</em> </p>
+            <p>&copy; 2020 Student performance. All Rights Reserved.</p>
         </div>
 
     </div>
+
+ <script src="./static/javascript/genderDs.js"></script>
+<script src="./static/javascript/nationDs.js"></script>
+<script src="./static/javascript/sectionIDandGrade.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 
 </body>
 

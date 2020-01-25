@@ -83,7 +83,7 @@ def dataForm():
                 or raisedhands == '' or int(raisedhands) > 100\
                 or Discussion == '' or int(Discussion) > 100:
 
-            error='kesafat select all field.'
+            error='Please Fill all Question Form.'
             return render_template('Students.html', error=error, gender=gender_data, NationalITy=Nationality_data,
                                    PlaceofBirth=PlaceofBirth_data, StageID=StageID_data,
                                    GradeID=GradeID_data, SectionID=SectionID_data, Topic=Topic_data, Semester=Semester_data,
@@ -103,7 +103,7 @@ def dataForm():
 
         vis_data =get_visualization()
 
-        return render_template('result.html',score=user_score,vis_data=vis_data)
+        return render_template('Prediction.html',score=user_score,vis_data=vis_data)
 
 
     else :
